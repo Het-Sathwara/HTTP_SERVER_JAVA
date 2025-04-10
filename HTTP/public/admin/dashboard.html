@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            margin: 40px; 
+        }
+        .dashboard {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .card {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+            border: none;
+        }
+        .button.red {
+            background-color: #f44336;
+        }
+        .button:hover {
+            opacity: 0.9;
+        }
+        #cookieInfo {
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background: white;
+            display: none;
+        }
+        .cookie-item {
+            padding: 8px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <h1>Admin Dashboard</h1>
+        <div class="card">
+            <h2>Server Status</h2>
+            <p>Server is running on port: 8080</p>
+            <p>Active since: <span id="startTime"></span></p>
+        </div>
+        <div class="card">
+            <h2>Cookie Management</h2>
+            <button class="button" onclick="showCookies()">Show Current Cookies</button>
+            <div id="cookieInfo"></div>
+        </div>
+        <div class="card">
+            <h2>Tests</h2>
+            <a href="/run-tests" class="button">Run HTTP Server Tests</a>
+        </div>
+        <div class="card">
+            <h2>Actions</h2>
+            <a href="/admin/logout" class="button red">Logout</a>
+        </div>
+    </div>
+    <script>
+        document.getElementById('startTime').textContent = new Date().toLocaleString();
+
+        function showCookies() {
+            const cookieInfo = document.getElementById('cookieInfo');
+            cookieInfo.style.display = 'block';
+            
+            const cookies = document.cookie.split(';');
+            let cookieHtml = '<h3>Current Cookies:</h3>';
+            
+            if (cookies.length === 0 || (cookies.length === 1 && cookies[0].trim() === '')) {
+                cookieHtml += '<p>No cookies found</p>';
+            } else {
+                cookies.forEach(cookie => {
+                    const [name, value] = cookie.split('=').map(c => c.trim());
+                    cookieHtml += `<div class="cookie-item"><strong>${name}:</strong> ${value}</div>`;
+                });
+            }
+            
+            cookieInfo.innerHTML = cookieHtml;
+        }
+    </script>
+</body>
+</html>

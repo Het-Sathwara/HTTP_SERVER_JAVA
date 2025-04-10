@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HTTP Server Test Results</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .summary { margin-bottom: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 4px; }
+        .pass { background-color: #dff0d8; }
+        .fail { background-color: #f2dede; }
+        .button { display: inline-block; padding: 10px 20px; background-color: #4CAF50;
+                 color: white; text-decoration: none; border-radius: 4px; margin-top: 20px; }
+        #cookieInfo { margin-top: 15px; padding: 15px; border: 1px solid #ddd;
+                     border-radius: 4px; background: white; display: none; }
+        .cookie-item { padding: 8px; margin: 5px 0; background: #f9f9f9; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <h1>HTTP Server Test Results</h1>
+<div class='summary'>Total Tests: 6<br>Passed: 6<br>Failed: 0</div>
+<div class='test-result pass'>
+<strong>Parse GET request:</strong> PASS
+</div>
+<div class='test-result pass'>
+<strong>Parse POST request with body:</strong> PASS
+</div>
+<div class='test-result pass'>
+<strong>Parse request with cookies:</strong> PASS
+</div>
+<div class='test-result pass'>
+<strong>Parse request with query parameters:</strong> PASS
+</div>
+<div class='test-result pass'>
+<strong>Generate 200 OK response:</strong> PASS
+</div>
+<div class='test-result pass'>
+<strong>Generate 404 Not Found response:</strong> PASS
+</div>
+</body>
+</html>

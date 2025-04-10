@@ -1,0 +1,2 @@
+This is a sample downloadable file from the Java Web Server.
+You can download this file to test the file download functionality.
